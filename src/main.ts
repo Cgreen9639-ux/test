@@ -1,7 +1,14 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+const dropdownBtn: HTMLElement = document.getElementById("btn")!;
+const dropdownMenu: HTMLElement = document.getElementById("dropdown")!;
+const toggleArrow: HTMLElement = document.getElementById("arrow")!;
 
-import { AppModule } from './app/app.module';
+const toggleDropdown = function () {
+    dropdownMenu.classList.toggle("show");
+    toggleArrow.classList.toggle("arrow");
+};
 
+dropdownBtn.addEventListener("click", function (e: Event) {
+    e.stopPropagation();
+    toggleDropdown();
+});
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
